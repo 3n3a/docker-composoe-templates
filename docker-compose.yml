@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  database:
+    image: 'postgres:latest'
+    restart: "always"
+    env_file:
+      - .env
+    volumes:
+      - pgdb-data:/var/lib/postgresql/data/
+    networks:
+      - pg-net
+
+  admin:
+    image: 'dpage/pgadmin4'
+    restart: "always"
+    env_file:
+      - .env
+    volumes:
+      - pgadmin4-data:/var/lib/pgadmin
+    ports:
+      - "5480:80"
+    networks:
+      - pg-net
+
+networks:
+  pg-net:
+    external: true
+
+volumes:
+  pgadmin4-data:
+    external: true
+  pgdb-data:
+    external: true
