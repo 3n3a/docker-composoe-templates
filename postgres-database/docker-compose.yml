@@ -18,6 +18,7 @@ services:
       - .env
     volumes:
       - pgadmin4-data:/var/lib/pgadmin
+      - ./config/servers.json:/pgadmin4/servers.json
     ports:
       - "5480:80"
     networks:
