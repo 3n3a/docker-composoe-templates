@@ -13,7 +13,7 @@ docker volume create --name pgadmin4-data -d local
 3. Setup Network `pg-net`
 
 ```
-docker network create --driver bridge postgres-net
+docker network create --driver bridge pg-net
 ```
 
 4. Start containers
